@@ -1,12 +1,21 @@
-[gd_scene load_steps=2 format=3 uid="uid://b6n078kjs6jy4"]
+[gd_scene load_steps=3 format=3 uid="uid://b6n078kjs6jy4"]
 
 [ext_resource type="PackedScene" uid="uid://bfy5kdwf4wgwu" path="res://Test/scenes/player.tscn" id="1_cyutl"]
+[ext_resource type="Script" uid="uid://bla6hytg38q6q" path="res://Test/scripts/camera_2d.gd" id="2_e0xxo"]
 
-[node name="Room" type="Node3D"]
+[node name="Room" type="Node2D"]
 
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0348552, -0.447021, 0.0276935)
-size = Vector3(7, 0.105957, 7)
+[node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(320, 180)
+offset_right = 320.0
+offset_bottom = 180.0
+color = Color(0, 0, 0, 1)
 
 [node name="Player" parent="." instance=ExtResource("1_cyutl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.484511, 0)
+position = Vector2(158, 87)
+
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("player")]
+position_smoothing_enabled = true
+position_smoothing_speed = 6.0
+script = ExtResource("2_e0xxo")
+player = NodePath("../Player")
