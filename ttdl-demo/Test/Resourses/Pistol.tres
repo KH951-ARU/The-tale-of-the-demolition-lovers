@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="WeaponData" load_steps=3 format=3 uid="uid://bthat3pnd83eb"]
+
+[ext_resource type="PackedScene" uid="uid://d1wgr5jrxt5ly" path="res://Test/scenes/bullet.tscn" id="1_xkv42"]
+[ext_resource type="Script" uid="uid://ctmvxbxhloun0" path="res://Test/scripts/weapon_data.gd" id="2_xp353"]
+
+[resource]
+script = ExtResource("2_xp353")
+weapon_name = "Pistol"
+fire_rate = 0.25
+gun_spread_deg = 3.0
+shake_strength = 6.0
+bullet_scene = ExtResource("1_xkv42")
+bullets_per_shot = 1
+metadata/_custom_type_script = "uid://ctmvxbxhloun0"
