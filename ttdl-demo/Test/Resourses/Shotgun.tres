@@ -7,8 +7,8 @@
 script = ExtResource("2_w2y7o")
 weapon_name = "Pistol"
 fire_rate = 0.7
-gun_spread_deg = 15.0
+gun_spread_deg = 24.0
 shake_strength = 25.0
 bullet_scene = ExtResource("1_7nl8g")
-bullets_per_shot = 6
+bullets_per_shot = 8
 metadata/_custom_type_script = "uid://ctmvxbxhloun0"

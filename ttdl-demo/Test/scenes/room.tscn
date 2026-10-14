@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://b6n078kjs6jy4"]
+[gd_scene load_steps=4 format=3 uid="uid://b6n078kjs6jy4"]
 
 [ext_resource type="PackedScene" uid="uid://bfy5kdwf4wgwu" path="res://Test/scenes/player.tscn" id="1_cyutl"]
 [ext_resource type="Script" uid="uid://bla6hytg38q6q" path="res://Test/scripts/camera_2d.gd" id="2_e0xxo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e0xxo"]
+size = Vector2(1216, 666)
 
 [node name="Room" type="Node2D"]
 
@@ -19,3 +22,10 @@ position_smoothing_enabled = true
 position_smoothing_speed = 6.0
 script = ExtResource("2_e0xxo")
 player = NodePath("../Player")
+
+[node name="MapBoundary" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MapBoundary"]
+position = Vector2(149, 85)
+shape = SubResource("RectangleShape2D_e0xxo")
+debug_color = Color(0.431373, 0.6, 0, 0.513726)

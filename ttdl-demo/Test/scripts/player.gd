@@ -54,10 +54,12 @@ func handle_rotation() -> void:
 	look_at(mouse_pos)
 
 func handle_inventory_input() -> void:
+	if inventory.size() <= 1:
+		return
 	# handles weapon swaping
-	if Input.is_action_just_pressed("ui_focus_next") or Input.is_action_just_pressed("next_weapon"):
+	if Input.is_action_just_pressed("next_weapon"):
 		cycle_weapon(1)
-	elif Input.is_action_just_pressed("ui_focus_prev") or Input.is_action_just_pressed("prev_weapon"):
+	elif Input.is_action_just_pressed("prev_weapon"):
 		cycle_weapon(-1)
 
 ##equips weapon
@@ -69,9 +71,10 @@ func equip_weapon(index : int) -> void:
 
 ## cycling thorogh weapons
 func cycle_weapon(direction : int ) -> void:
-	if inventory.size() <= 1: return
-	var new_index = (current_weapon_index + direction) % inventory.size()
-	if new_index < 0:
+	var new_index = current_weapon_index + direction
+	if new_index >= inventory.size():
+		new_index = 0
+	elif new_index < 0:
 		new_index = inventory.size() - 1
 	equip_weapon(new_index)
 
@@ -80,23 +83,40 @@ func cycle_weapon(direction : int ) -> void:
 func shoot() -> void: 
 	can_shoot = false
 	
-	#spawn projectile
-	var bullet_inst = current_weapon.bullet_scene.instantiate() as CharacterBody2D
-	
-	# randomised spread for weapons
+	var total_pellets = current_weapon.bullets_per_shot
 	var max_spread = current_weapon.gun_spread_deg
-	var random_spread = deg_to_rad(randf_range(-max_spread,max_spread))
 	
-	#set postition of muzzle with player position & random spread
-	bullet_inst.global_position = muzzle.global_position
-	bullet_inst.rotation = global_rotation + random_spread
+	for i in range(total_pellets):
+		#spawn projectile
+		var bullet_inst = current_weapon.bullet_scene.instantiate() as CharacterBody2D
+		
+		# randomised spread for weapons
+		var random_spread = deg_to_rad(randf_range(-max_spread,max_spread))
 	
-	# add to bullet to root (so it can travel
-	get_tree().current_scene.add_child(bullet_inst)
+		#set postition of muzzle with player position & random spread
+		bullet_inst.global_position = muzzle.global_position
+		bullet_inst.rotation = global_rotation + random_spread
 	
-	#screen shake
+		# add to bullet to root (so it can travel
+		get_tree().current_scene.add_child(bullet_inst)
+	#apply camera kickback
 	if camera_node:
 		camera_node.apply_shake(current_weapon.shake_strength)
+	
+	#knockback system
+	var look_direction = Vector2.RIGHT.rotated(global_rotation)
+	velocity -= look_direction * (current_weapon.shake_strength * 25)
+	
+	
 	#enforce fire rate 
 	await get_tree().create_timer(current_weapon.fire_rate).timeout
 	can_shoot = true
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_accept") or Input.is_key_pressed(KEY_R):
+		die()
+
+func die() -> void:
+	set_physics_process(false)
+	print("YOU DIE")
+	SceneManager.reload_current_floor()
