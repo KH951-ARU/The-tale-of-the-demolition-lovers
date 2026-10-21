@@ -122,6 +122,9 @@ func shoot() -> void:
 	#enforce fire rate 
 	await get_tree().create_timer(current_weapon.fire_rate).timeout
 	can_shoot = true
+	
+	if has_node("CrossHairUI"):
+		get_node("CrossHairUI").pulse_crosshair()
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_accept") or Input.is_key_pressed(KEY_R):

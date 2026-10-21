@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dnpbaq5dm42vb"]
+
+[ext_resource type="Script" uid="uid://bjv3gt4h0vmbr" path="res://CORE_SYS/UI_SYS/SCRIPT/SCR_UI_Cross_hair.gd" id="1_1ljxo"]
+[ext_resource type="Texture2D" uid="uid://c5hjyaklaammo" path="res://CORE_SYS/UI_SYS/ART/crosshair react.png" id="1_kcb17"]
+
+[node name="CrossHairUI" type="CanvasLayer"]
+layer = 60
+script = ExtResource("1_1ljxo")
+
+[node name="CrossHairSprite" type="TextureRect" parent="."]
+offset_right = 16.0
+offset_bottom = 16.0
+pivot_offset = Vector2(8, 8)
+mouse_filter = 2
+texture = ExtResource("1_kcb17")

@@ -17,6 +17,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 SceneManager="*res://Test/scripts/SceneManager.gd"
+ScoreManager="*res://CORE_SYS/GLOBALS/GLB_ScoreManager.gd"
 
 [display]
 

@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://dt8mevqyiquww"]
+
+[ext_resource type="Script" uid="uid://cksqasm3bphj" path="res://CORE_SYS/UI_SYS/UI_SYS_kill_counter.gd" id="1_pwn5i"]
+
+[node name="KillCounterUI" type="CanvasLayer"]
+layer = 50
+script = ExtResource("1_pwn5i")
+
+[node name="KillsLabel" type="Label" parent="."]
+offset_left = 238.0
+offset_right = 278.0
+offset_bottom = 23.0
+text = "Think happy thoughs!"
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -1,12 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://b6n078kjs6jy4"]
+[gd_scene load_steps=7 format=3 uid="uid://b6n078kjs6jy4"]
 
 [ext_resource type="PackedScene" uid="uid://bfy5kdwf4wgwu" path="res://Test/scenes/player.tscn" id="1_cyutl"]
+[ext_resource type="PackedScene" uid="uid://dt8mevqyiquww" path="res://CORE_SYS/UI_SYS/kill_counter_ui.tscn" id="1_i6ke8"]
+[ext_resource type="PackedScene" uid="uid://dnpbaq5dm42vb" path="res://CORE_SYS/UI_SYS/CrossHair_ui.tscn" id="1_w7i6g"]
 [ext_resource type="Script" uid="uid://bla6hytg38q6q" path="res://Test/scripts/camera_2d.gd" id="2_e0xxo"]
+[ext_resource type="PackedScene" uid="uid://ciidwlkdss8fu" path="res://Test/scenes/enemy.tscn" id="3_2bjw1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e0xxo"]
-size = Vector2(1216, 666)
+size = Vector2(684, 464)
 
 [node name="Room" type="Node2D"]
+
+[node name="CrossHairUI" parent="." instance=ExtResource("1_w7i6g")]
+
+[node name="KillCounterUI" parent="." instance=ExtResource("1_i6ke8")]
 
 [node name="ColorRect" type="ColorRect" parent="."]
 custom_minimum_size = Vector2(320, 180)
@@ -26,6 +33,10 @@ player = NodePath("../Player")
 [node name="MapBoundary" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MapBoundary"]
-position = Vector2(149, 85)
+visible = false
+position = Vector2(179, 84)
 shape = SubResource("RectangleShape2D_e0xxo")
 debug_color = Color(0.431373, 0.6, 0, 0.513726)
+
+[node name="Enemy" parent="." instance=ExtResource("3_2bjw1")]
+position = Vector2(230, 53)

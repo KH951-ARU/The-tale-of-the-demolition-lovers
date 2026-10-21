@@ -63,13 +63,15 @@ func _on_hearing_radius_body_entered(body: Node2D) -> void:
 		current_state = AIState.ALERT
 		
 		await get_tree().create_timer(0.3).timeout
-		current_state = AIState.CHARGING
+		if current_health > 0:
+			current_state = AIState.CHARGING
 	
 
 func take_damage(amount: int) -> void:
 	if current_health <= 0: 
 		return
 	current_health -= amount
+	print("enemy hit! health left: ", current_health)
 	current_state = AIState.CHARGING
 	
 	if current_health <= 0:
@@ -78,5 +80,8 @@ func take_damage(amount: int) -> void:
 
 func die() -> void:
 	current_health = 0
+	print("Enemy dead")
+	
+	ScoreManager.add_kill()
 	#add death animation & drop blood stains
 	queue_free()
