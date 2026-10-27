@@ -1,3 +1,91 @@
 [gd_scene format=3 uid="uid://ddate1mibjfqw"]
 
 [node name="Level4" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 68.0
+offset_top = -67.0
+offset_right = 237.0
+offset_bottom = 180.0
+
+[node name="ColorRect2" type="ColorRect" parent="ColorRect"]
+offset_left = 174.0
+offset_top = 4.0
+offset_right = 254.0
+offset_bottom = 245.0
+color = Color(0.54099, 0.54099, 0.54099, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="ColorRect"]
+offset_left = -155.0
+offset_top = -888.0
+offset_right = -75.0
+offset_bottom = -1.0
+color = Color(0.54099, 0.54099, 0.54099, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="ColorRect/ColorRect4"]
+offset_left = 539.0
+offset_top = -8.0
+offset_right = 619.0
+offset_bottom = 594.0
+color = Color(0.54099, 0.54099, 0.54099, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="ColorRect/ColorRect4/ColorRect3"]
+offset_left = -128.0
+offset_top = 613.0
+offset_right = -18.0
+offset_bottom = 894.0
+color = Color(0.54099, 0.54099, 0.54099, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="ColorRect/ColorRect4/ColorRect3"]
+offset_top = -650.0
+offset_right = 80.0
+offset_bottom = -22.0
+color = Color(0.54099, 0.54099, 0.54099, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="ColorRect/ColorRect4/ColorRect3/ColorRect4"]
+offset_left = -548.0
+offset_top = -3.0
+offset_right = -468.0
+offset_bottom = 637.0
+color = Color(0.54099, 0.54099, 0.54099, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="ColorRect"]
+offset_left = -86.0
+offset_top = 4.0
+offset_right = -6.0
+offset_bottom = 245.0
+color = Color(0.54099, 0.54099, 0.54099, 1)
+
+[node name="ColorRect" type="ColorRect" parent="ColorRect/ColorRect3"]
+offset_left = 19.0
+offset_top = -301.0
+offset_right = 336.0
+offset_bottom = -4.0
+
+[node name="ColorRect" type="ColorRect" parent="ColorRect/ColorRect3/ColorRect"]
+offset_top = -296.0
+offset_right = 115.0
+offset_bottom = 1.0
+
+[node name="ColorRect" type="ColorRect" parent="ColorRect/ColorRect3/ColorRect/ColorRect"]
+offset_left = 202.0
+offset_right = 432.0
+offset_bottom = 297.0
+
+[node name="ColorRect" type="ColorRect" parent="ColorRect/ColorRect3/ColorRect/ColorRect/ColorRect"]
+offset_left = -202.0
+offset_top = -297.0
+offset_right = 229.0
+
+[node name="ColorRect" type="ColorRect" parent="ColorRect/ColorRect3/ColorRect/ColorRect/ColorRect/ColorRect"]
+offset_top = -659.0
+offset_right = 431.0
+offset_bottom = -1.0
+
+[node name="prision" type="Label" parent="."]
+offset_left = 128.0
+offset_top = 131.0
+offset_right = 182.0
+offset_bottom = 154.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "prision"
