@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://bhnfoebsa7lut"]
+
+[ext_resource type="Script" uid="uid://bbwjoqsyal4f6" path="res://CORE_SYS/ENEMY_ARC/SCRIPT/SCR_Enemy_Melee.gd" id="1_wcl72"]
+[ext_resource type="Texture2D" uid="uid://cjnhx3t4waqcy" path="res://Test/art/enemy.png" id="2_v5uph"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_acvka"]
+radius = 11.1803
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_x6oaq"]
+radius = 24.0208
+
+[node name="MeleeCop" type="CharacterBody2D"]
+collision_layer = 8
+collision_mask = 3
+script = ExtResource("1_wcl72")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_acvka")
+
+[node name="HearingRadius" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HearingRadius"]
+shape = SubResource("CircleShape2D_x6oaq")
+debug_color = Color(0.8644, 0.690002, 1.54018e-06, 0.42)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_v5uph")
