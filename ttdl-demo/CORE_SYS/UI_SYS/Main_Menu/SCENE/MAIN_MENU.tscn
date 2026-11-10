@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://c015np2ajrfd3"]
+
+[node name="MainMenu" type="Control" unique_id=1677904047]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CD_player_body" type="PanelContainer" parent="." unique_id=1420921945]
+layout_mode = 0
+offset_right = 320.0
+offset_bottom = 180.0
+
+[node name="CD_Disc" type="TextureProgressBar" parent="CD_player_body" unique_id=2147354365]
+layout_mode = 2
+
+[node name="LCD_Display" type="Label" parent="CD_player_body" unique_id=146621812]
+layout_mode = 2
+text = "Track 1 - our phantoms forever"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CD_player_body" unique_id=267634835]
+layout_mode = 2
+
+[node name="Prev_button" type="TextureButton" parent="CD_player_body/HBoxContainer" unique_id=2105526413]
+layout_mode = 2
+
+[node name="Play_button" type="TextureButton" parent="CD_player_body/HBoxContainer" unique_id=632780079]
+layout_mode = 2
+
+[node name="Next_button" type="TextureButton" parent="CD_player_body/HBoxContainer" unique_id=1434220929]
+layout_mode = 2
