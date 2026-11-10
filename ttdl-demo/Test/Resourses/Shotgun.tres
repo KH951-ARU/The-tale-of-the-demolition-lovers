@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="WeaponData" load_steps=3 format=3 uid="uid://u4a243c1o151"]
+[gd_resource type="Resource" script_class="WeaponData" format=3 uid="uid://u4a243c1o151"]
 
 [ext_resource type="PackedScene" uid="uid://d1wgr5jrxt5ly" path="res://Test/scenes/bullet.tscn" id="1_7nl8g"]
 [ext_resource type="Script" uid="uid://ctmvxbxhloun0" path="res://Test/scripts/weapon_data.gd" id="2_w2y7o"]
@@ -8,7 +8,6 @@ script = ExtResource("2_w2y7o")
 weapon_name = "Shotgun"
 fire_rate = 0.7
 gun_spread_deg = 24.0
-shake_strength = 25.0
-bullet_scene = ExtResource("1_7nl8g")
+shake_strength = 50.0
 bullets_per_shot = 8
 metadata/_custom_type_script = "uid://ctmvxbxhloun0"
