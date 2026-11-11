@@ -1,5 +1,66 @@
 [gd_scene format=3 uid="uid://c015np2ajrfd3"]
 
+[ext_resource type="Script" uid="uid://b3ha32shwgu4f" path="res://CORE_SYS/MENUS/Main_Menu/SCRIPT/SCR_MAIN_MENU_CONTROL.gd" id="1_ogbp6"]
+[ext_resource type="Texture2D" uid="uid://t0k148aeq551" path="res://CORE_SYS/MENUS/Main_Menu/ART/TRACK 1 CD.png" id="1_udcmm"]
+[ext_resource type="Texture2D" uid="uid://x10suojoafn3" path="res://CORE_SYS/MENUS/Main_Menu/ART/Previous.png" id="2_ogbp6"]
+[ext_resource type="Texture2D" uid="uid://c81w8ewy3dmn0" path="res://CORE_SYS/MENUS/Main_Menu/ART/CDDriveCover.png" id="3_0gibb"]
+[ext_resource type="Texture2D" uid="uid://dyhvpxucqyomq" path="res://CORE_SYS/MENUS/Main_Menu/ART/Play.png" id="3_bdksh"]
+[ext_resource type="Texture2D" uid="uid://bwqg8nna7ychu" path="res://CORE_SYS/MENUS/Main_Menu/ART/Next.png" id="4_0gibb"]
+
+[sub_resource type="Animation" id="Animation_0gibb"]
+resource_name = "CLOSE_LID"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CD_player_body/CDLid:scale:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06666668, 0.15, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [1e-05, 0.15, 0.5, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_bdksh"]
+resource_name = "OPEN_LID"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CD_player_body/CDLid:scale:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.23333333, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [1.0, 0.5, 0.15, 1e-05]
+}
+
+[sub_resource type="Animation" id="Animation_am6ue"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CD_player_body/CDLid:scale:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1.1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ph3hd"]
+_data = {
+&"CLOSE_LID": SubResource("Animation_0gibb"),
+&"OPEN_LID": SubResource("Animation_bdksh"),
+&"RESET": SubResource("Animation_am6ue")
+}
+
 [node name="MainMenu" type="Control" unique_id=1677904047]
 layout_mode = 3
 anchors_preset = 15
@@ -7,28 +68,68 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_ogbp6")
 
-[node name="CD_player_body" type="PanelContainer" parent="." unique_id=1420921945]
+[node name="CD_player_body" type="Panel" parent="." unique_id=1974614828]
 layout_mode = 0
-offset_right = 320.0
-offset_bottom = 180.0
+offset_left = 1.0
+offset_top = -1.0
+offset_right = 321.0
+offset_bottom = 179.0
 
 [node name="CD_Disc" type="TextureProgressBar" parent="CD_player_body" unique_id=2147354365]
-layout_mode = 2
+layout_mode = 0
+offset_left = 98.0
+offset_top = 2.0
+offset_right = 218.0
+offset_bottom = 122.0
+pivot_offset = Vector2(60, 60)
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture_under = ExtResource("1_udcmm")
+
+[node name="CDLid" type="TextureRect" parent="CD_player_body" unique_id=1579528515]
+layout_mode = 0
+offset_left = 90.0
+offset_top = 1.0
+offset_right = 210.0
+offset_bottom = 121.0
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("3_0gibb")
 
 [node name="LCD_Display" type="Label" parent="CD_player_body" unique_id=146621812]
-layout_mode = 2
+layout_mode = 0
+offset_left = 41.0
+offset_top = 87.0
+offset_right = 284.0
+offset_bottom = 110.0
 text = "Track 1 - our phantoms forever"
 horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CD_player_body" unique_id=267634835]
-layout_mode = 2
+layout_mode = 0
+offset_left = 94.0
+offset_top = 139.0
+offset_right = 222.0
+offset_bottom = 179.0
 
 [node name="Prev_button" type="TextureButton" parent="CD_player_body/HBoxContainer" unique_id=2105526413]
 layout_mode = 2
+texture_normal = ExtResource("2_ogbp6")
+texture_pressed = ExtResource("2_ogbp6")
+texture_hover = ExtResource("2_ogbp6")
 
 [node name="Play_button" type="TextureButton" parent="CD_player_body/HBoxContainer" unique_id=632780079]
 layout_mode = 2
+texture_normal = ExtResource("3_bdksh")
+texture_pressed = ExtResource("3_bdksh")
+texture_hover = ExtResource("3_bdksh")
 
 [node name="Next_button" type="TextureButton" parent="CD_player_body/HBoxContainer" unique_id=1434220929]
 layout_mode = 2
+texture_normal = ExtResource("4_0gibb")
+texture_pressed = ExtResource("4_0gibb")
+texture_hover = ExtResource("4_0gibb")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=689127698]
+libraries/ = SubResource("AnimationLibrary_ph3hd")
