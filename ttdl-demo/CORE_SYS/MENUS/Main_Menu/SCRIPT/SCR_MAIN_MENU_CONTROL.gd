@@ -1,7 +1,7 @@
 extends Control
 
 @onready var  LCD_display : Label = $CD_player_body/LCD_Display
-@onready var  CD_Disc : TextureProgressBar = $CD_player_body/CD_Disc
+@onready var  CD_Disc : TextureRect = $CD_player_body/CD_Disc
 @onready var anim_player: AnimationPlayer =$AnimationPlayer
 
 @onready var prev_button: TextureButton = $CD_player_body/HBoxContainer/Prev_button
@@ -49,7 +49,7 @@ func change_track(direction : int ) -> void:
 	var TRACK_num = current_track_index + 1
 	var TRACK_name = levels[current_track_index]["name"]
 	
-	LCD_display.text = "TRACK: %02d\n READING DISC..." % [TRACK_num, TRACK_name]
+	LCD_display.text = "TRACK: %02d: %s READING DISC..." % [TRACK_num, TRACK_name]
 	await get_tree().create_timer(0.2).timeout
 	
 	anim_player.play("CLOSE_LID")

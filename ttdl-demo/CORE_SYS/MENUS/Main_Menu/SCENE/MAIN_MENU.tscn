@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c015np2ajrfd3"]
 
 [ext_resource type="Script" uid="uid://b3ha32shwgu4f" path="res://CORE_SYS/MENUS/Main_Menu/SCRIPT/SCR_MAIN_MENU_CONTROL.gd" id="1_ogbp6"]
-[ext_resource type="Texture2D" uid="uid://t0k148aeq551" path="res://CORE_SYS/MENUS/Main_Menu/ART/TRACK 1 CD.png" id="1_udcmm"]
+[ext_resource type="Texture2D" uid="uid://ch1hh4ojar7ns" path="res://CORE_SYS/MENUS/Main_Menu/ART/TRACK 2 CD.png" id="2_bdksh"]
 [ext_resource type="Texture2D" uid="uid://x10suojoafn3" path="res://CORE_SYS/MENUS/Main_Menu/ART/Previous.png" id="2_ogbp6"]
 [ext_resource type="Texture2D" uid="uid://c81w8ewy3dmn0" path="res://CORE_SYS/MENUS/Main_Menu/ART/CDDriveCover.png" id="3_0gibb"]
 [ext_resource type="Texture2D" uid="uid://dyhvpxucqyomq" path="res://CORE_SYS/MENUS/Main_Menu/ART/Play.png" id="3_bdksh"]
@@ -77,7 +77,7 @@ offset_top = -1.0
 offset_right = 321.0
 offset_bottom = 179.0
 
-[node name="CD_Disc" type="TextureProgressBar" parent="CD_player_body" unique_id=2147354365]
+[node name="CD_Disc" type="TextureRect" parent="CD_player_body" unique_id=1804998765]
 layout_mode = 0
 offset_left = 98.0
 offset_top = 2.0
@@ -86,9 +86,10 @@ offset_bottom = 122.0
 pivot_offset = Vector2(60, 60)
 size_flags_horizontal = 0
 size_flags_vertical = 0
-texture_under = ExtResource("1_udcmm")
+texture = ExtResource("2_bdksh")
 
 [node name="CDLid" type="TextureRect" parent="CD_player_body" unique_id=1579528515]
+visible = false
 layout_mode = 0
 offset_left = 90.0
 offset_top = 1.0
@@ -97,6 +98,8 @@ offset_bottom = 121.0
 scale = Vector2(1.1, 1.1)
 mouse_filter = 2
 texture = ExtResource("3_0gibb")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="LCD_Display" type="Label" parent="CD_player_body" unique_id=146621812]
 layout_mode = 0
@@ -106,6 +109,8 @@ offset_right = 284.0
 offset_bottom = 110.0
 text = "Track 1 - our phantoms forever"
 horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CD_player_body" unique_id=267634835]
 layout_mode = 0
