@@ -95,6 +95,7 @@ offset_top = 1.0
 offset_right = 210.0
 offset_bottom = 121.0
 scale = Vector2(1.1, 1.1)
+mouse_filter = 2
 texture = ExtResource("3_0gibb")
 
 [node name="LCD_Display" type="Label" parent="CD_player_body" unique_id=146621812]
