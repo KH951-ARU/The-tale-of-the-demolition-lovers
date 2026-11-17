@@ -12,7 +12,7 @@ var levels: Array[Dictionary] = [
 	{"name": "Our Phantoms Forever", "path": "res://TTDL_TRACKS/TRACK/DEMOLITION_LOVERS(L1/level_1.tscn"},
 	{"name": "This is how we do it in the murder scene", "path": "res://TTDL_TRACKS/TRACK/GIVE_EM_HELL_KID(L2)/level_2.tscn"},
 	{"name": "Lost in a coma and covered in cake", "path": "res://TTDL_TRACKS/TRACK/TO_THE_END(L3)/level_3.tscn"},
-	{"name": "Cause I'm gonna string this --------------", "path":"res://TTDL_TRACKS/TRACK/YKWTDTGLUIP(L4)/level_4.tscn"}
+	{"name": "Cause I'm gonna string this Motherfucker", "path":"res://TTDL_TRACKS/TRACK/YKWTDTGLUIP(L4)/level_4.tscn"}
 ]
 
 var current_track_index: int = 0 
