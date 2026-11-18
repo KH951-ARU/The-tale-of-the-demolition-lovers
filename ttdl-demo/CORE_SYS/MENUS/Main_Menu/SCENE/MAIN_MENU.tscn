@@ -2,12 +2,14 @@
 
 [ext_resource type="Script" uid="uid://b3ha32shwgu4f" path="res://CORE_SYS/MENUS/Main_Menu/SCRIPT/SCR_MAIN_MENU_CONTROL.gd" id="1_ogbp6"]
 [ext_resource type="Texture2D" uid="uid://cflrmodrrmbem" path="res://CORE_SYS/MENUS/Main_Menu/ART/HIFIBase_DESIGN.png" id="2_0gibb"]
-[ext_resource type="Texture2D" uid="uid://dcc8itxcg551r" path="res://CORE_SYS/MENUS/Main_Menu/ART/TRACK 3 CD.png" id="2_bdksh"]
+[ext_resource type="PackedScene" uid="uid://2cefar7xmyx1" path="res://CORE_SYS/MENUS/Main_Menu/SCENE/AUDIO_VISUALLISER.tscn" id="2_8lqxp"]
 [ext_resource type="Texture2D" uid="uid://x10suojoafn3" path="res://CORE_SYS/MENUS/Main_Menu/ART/Previous.png" id="2_ogbp6"]
 [ext_resource type="Texture2D" uid="uid://c81w8ewy3dmn0" path="res://CORE_SYS/MENUS/Main_Menu/ART/CDDriveCover.png" id="3_0gibb"]
+[ext_resource type="Texture2D" uid="uid://t0k148aeq551" path="res://CORE_SYS/MENUS/Main_Menu/ART/TRACK 1 CD.png" id="3_am6ue"]
 [ext_resource type="Texture2D" uid="uid://dyhvpxucqyomq" path="res://CORE_SYS/MENUS/Main_Menu/ART/Play.png" id="3_bdksh"]
 [ext_resource type="Texture2D" uid="uid://bwqg8nna7ychu" path="res://CORE_SYS/MENUS/Main_Menu/ART/Next.png" id="4_0gibb"]
 [ext_resource type="LabelSettings" uid="uid://bn0b843cs8y6m" path="res://CORE_SYS/UI_SYS/ASSET_SETTINGS/MENU_LBL_SET.tres" id="5_am6ue"]
+[ext_resource type="AudioStream" uid="uid://cxpebysilqvaw" path="res://CORE_SYS/MENUS/Main_Menu/testing.mp3" id="10_5e4n6"]
 
 [sub_resource type="Animation" id="Animation_0gibb"]
 resource_name = "CLOSE_LID"
@@ -95,7 +97,7 @@ offset_bottom = 122.0
 pivot_offset = Vector2(60, 60)
 size_flags_horizontal = 0
 size_flags_vertical = 0
-texture = ExtResource("2_bdksh")
+texture = ExtResource("3_am6ue")
 
 [node name="CDLid" type="TextureRect" parent="CD_player_body" unique_id=1579528515]
 layout_mode = 0
@@ -121,6 +123,20 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
+[node name="AudioVisualliser" parent="CD_player_body" unique_id=2141340826 instance=ExtResource("2_8lqxp")]
+layout_mode = 0
+offset_left = 6.0
+offset_top = -13.0
+offset_right = 142.0
+offset_bottom = 5.0
+bar_count = 23
+bar_width = 5.0
+bar_spacing = 1.0
+max_height = 44.0
+low_color = Color(0, 0.95686275, 1, 1)
+mid_color = Color(1, 0, 1, 1)
+peak_color = Color(1, 1, 0, 1)
+
 [node name="HBoxContainer" type="HBoxContainer" parent="CD_player_body" unique_id=267634835]
 layout_mode = 0
 offset_left = 187.0
@@ -145,6 +161,12 @@ layout_mode = 2
 texture_normal = ExtResource("4_0gibb")
 texture_pressed = ExtResource("4_0gibb")
 texture_hover = ExtResource("4_0gibb")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=601267172]
+stream = ExtResource("10_5e4n6")
+autoplay = true
+bus = &"Music"
+parameters/looping = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=689127698]
 libraries/ = SubResource("AnimationLibrary_ph3hd")

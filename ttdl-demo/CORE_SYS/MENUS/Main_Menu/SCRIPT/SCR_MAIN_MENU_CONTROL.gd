@@ -9,10 +9,22 @@ extends Control
 @onready var next_button: TextureButton = $CD_player_body/HBoxContainer/Next_button
 
 var levels: Array[Dictionary] = [
-	{"name": "Our Phantoms Forever", "path": "res://TTDL_TRACKS/TRACK/DEMOLITION_LOVERS(L1/level_1.tscn"},
-	{"name": "This is how we do it in the murder scene", "path": "res://TTDL_TRACKS/TRACK/GIVE_EM_HELL_KID(L2)/level_2.tscn"},
-	{"name": "Lost in a coma and covered in cake", "path": "res://TTDL_TRACKS/TRACK/TO_THE_END(L3)/level_3.tscn"},
-	{"name": "Cause I'm gonna string this Motherfucker", "path":"res://TTDL_TRACKS/TRACK/YKWTDTGLUIP(L4)/level_4.tscn"}
+	{"name": "Our Phantoms Forever", 
+	"path": "res://TTDL_TRACKS/TRACK/DEMOLITION_LOVERS(L1/level_1.tscn",
+	"disc_art": preload("res://CORE_SYS/MENUS/Main_Menu/ART/TRACK 1 CD.png")
+	},
+	{"name": "This is how we do it in the murder scene",
+	 "path": "res://TTDL_TRACKS/TRACK/GIVE_EM_HELL_KID(L2)/level_2.tscn",
+	"disc_art": preload("res://CORE_SYS/MENUS/Main_Menu/ART/TRACK 2 CD.png")
+	},
+	{"name": "Lost in a coma and covered in cake",
+	 "path": "res://TTDL_TRACKS/TRACK/TO_THE_END(L3)/level_3.tscn",
+	"disc_art": preload("res://CORE_SYS/MENUS/Main_Menu/ART/TRACK 3 CD.png")
+	},
+	{"name": "Cause I'm gonna string this Motherfucker",
+	 "path":"res://TTDL_TRACKS/TRACK/YKWTDTGLUIP(L4)/level_4.tscn",
+	"disc_art": preload("res://CORE_SYS/MENUS/Main_Menu/ART/TRACK 4 CD.png")
+	}
 ]
 
 var current_track_index: int = 0 
@@ -25,6 +37,7 @@ func _ready() -> void:
 	next_button.pressed.connect(_on_next_button_pressed)
 	play_button.pressed.connect(_on_play_button_pressed)
 	
+	CD_Disc.texture = levels[current_track_index]["disc_art"]
 	update_LCD_readout()
 
 func _process(delta: float) -> void:
@@ -46,6 +59,8 @@ func change_track(direction : int ) -> void:
 	await anim_player.animation_finished
 	
 	current_track_index = posmod(current_track_index + direction, levels.size())
+	CD_Disc.texture = levels[current_track_index]["disc_art"]
+	
 	var TRACK_num = current_track_index + 1
 	var TRACK_name = levels[current_track_index]["name"]
 	

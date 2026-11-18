@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://2cefar7xmyx1"]
+
+[ext_resource type="Script" uid="uid://eia3qcfig3k" path="res://CORE_SYS/MENUS/Main_Menu/SCRIPT/SCR_AUDIO_VISUALISER.gd" id="1_8wqfw"]
+
+[node name="AudioVisualliser" type="Control" unique_id=844225801]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_8wqfw")
